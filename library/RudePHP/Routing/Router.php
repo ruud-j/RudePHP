@@ -1,7 +1,7 @@
 <?php namespace RudePHP\Routing;
 
 use RudePHP\Request\Request;
-use RudePHP\Response\ErrorBasicResponse;
+use RudePHP\Response\ErrorResponse;
 
 abstract class Router
 {
@@ -24,7 +24,7 @@ abstract class Router
 
     public function handleError(\Exception $e)
     {
-        $response = new ErrorBasicResponse($e);
+        $response = new ErrorResponse($e);
         $response->show();
     }
 

@@ -2,7 +2,7 @@
 
 use RudePHP\Exception\NotFoundException;
 
-class ErrorBasicResponse extends BasicResponse
+class ErrorResponse extends BasicResponse
 {
     public function __construct(\Exception $e)
     {
