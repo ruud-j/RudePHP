@@ -1,23 +1,29 @@
-<?php namespace RudePHP\Request;
+<?php namespace RudePHP\Http;
 
-use RudePHP\Routing\RoutePathPart;
-
-class Path
+abstract class Path
 {
     const PATH_SEPERATOR = '/';
 
+    /**
+     * @var string
+     */
     protected $path;
-    protected $parts = array();
 
+    /**
+     * Path constructor.
+     * @param string $path
+     */
     public function __construct($path)
     {
         $this->path = $path;
-        $parts = $this->explode();
-        foreach ($parts as $part) {
-            $this->parts[] = new PathPart($part);
-        }
     }
 
+    /**
+     * Explodes path string into array
+     * '/foo/bar' becomes array('foo', 'bar')
+     *
+     * @return array
+     */
     public function explode()
     {
         $parts = explode(self::PATH_SEPERATOR, $this->path);

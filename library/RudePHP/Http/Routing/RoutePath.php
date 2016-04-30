@@ -1,19 +1,37 @@
-<?php namespace RudePHP\Routing;
+<?php namespace RudePHP\Http\Routing;
 
-use RudePHP\Request\Path;
-use RudePHP\Request\Request;
+use RudePHP\Http\Path;
+use RudePHP\Http\Request\Request;
 
 class RoutePath extends Path
 {
+    /**
+     * Array of RoutePathParts
+     *
+     * @var array
+     */
+    protected $parts = array();
+
+    /**
+     * RoutePath constructor.
+     * @param string $path
+     */
     public function __construct($path)
     {
-        $this->path = $path;
+        parent::__construct($path);
+        
         $parts = $this->explode();
         foreach ($parts as $part) {
             $this->parts[] = new RoutePathPart($part);
         }
     }
 
+    /**
+     * Checks if Request matches the RoutePath
+     *
+     * @param \RudePHP\Http\Request\Request $request
+     * @return bool
+     */
     public function matches(Request $request)
     {
         $requestUriParts = $request->getUriParts();
@@ -34,6 +52,12 @@ class RoutePath extends Path
         return true;
     }
 
+    /**
+     * Extract params from request according to the wildcards in the route path
+     *
+     * @param \RudePHP\Http\Request\Request $request
+     * @return array
+     */
     public function getParams(Request $request)
     {
         $params = array();

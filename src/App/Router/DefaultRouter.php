@@ -1,7 +1,7 @@
 <?php namespace App\Router;
 
 use App\Controller\ExampleController;
-use RudePHP\Routing\Router;
+use RudePHP\Http\Routing\Router;
 
 class DefaultRouter extends Router
 {

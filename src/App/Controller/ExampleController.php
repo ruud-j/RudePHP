@@ -1,7 +1,7 @@
 <?php namespace App\Controller;
 
 use RudePHP\Controller\BaseController;
-use RudePHP\Response\TwigResponse;
+use RudePHP\Http\Response\TwigResponse;
 
 class ExampleController extends BaseController
 {

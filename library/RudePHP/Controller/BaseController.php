@@ -4,6 +4,13 @@ use RudePHP\Exception\ControllerFunctionNotFoundException;
 
 class BaseController
 {
+    /**
+     * Instantiate controller and call method with params
+     *
+     * @param string $method
+     * @return mixed
+     * @throws \RudePHP\Exception\ControllerFunctionNotFoundException
+     */
     public static function call($method)
     {
         $controller = new static();

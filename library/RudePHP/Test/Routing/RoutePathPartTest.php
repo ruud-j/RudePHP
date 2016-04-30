@@ -1,7 +1,6 @@
-<?php namespace RudePHP\Test\Routing;
+<?php
 
-use PHPUnit_Framework_TestCase;
-use RudePHP\Routing\RoutePathPart;
+use RudePHP\Http\Routing\RoutePathPart;
 
 class RoutePathPartTest extends PHPUnit_Framework_TestCase
 {

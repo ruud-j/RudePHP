@@ -1,9 +1,8 @@
-<?php namespace Test\Routing;
+<?php
 
-use PHPUnit_Framework_TestCase;
-use RudePHP\Request\Request;
-use RudePHP\Routing\Route;
-use RudePHP\Routing\RoutePath;
+use RudePHP\Http\Request\Request;
+use RudePHP\Http\Routing\Route;
+use RudePHP\Http\Routing\RoutePath;
 
 class RouteTest extends PHPUnit_Framework_TestCase
 {

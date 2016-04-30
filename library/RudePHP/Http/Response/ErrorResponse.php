@@ -1,9 +1,13 @@
-<?php namespace RudePHP\Response;
+<?php namespace RudePHP\Http\Response;
 
 use RudePHP\Exception\NotFoundException;
 
 class ErrorResponse extends BasicResponse
 {
+    /**
+     * ErrorResponse constructor.
+     * @param \Exception $e
+     */
     public function __construct(\Exception $e)
     {
         if ($e instanceof NotFoundException) {
