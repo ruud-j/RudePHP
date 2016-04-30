@@ -3,10 +3,6 @@
 use RudePHP\Exception\RouteNotFoundException;
 use RudePHP\Http\Request\Request;
 
-/**
- * Class RouteStorage
- * @package RudePHP\Http\Routing
- */
 class RouteStorage
 {
     /**
@@ -21,7 +17,7 @@ class RouteStorage
      */
     public function register(Route $route)
     {
-        $this->routes[] = $route;
+        $this->routes[$route->getMethod()][] = $route;
     }
 
     /**
@@ -33,7 +29,7 @@ class RouteStorage
      */
     public function find(Request $request)
     {
-        foreach ($this->routes as $route) {
+        foreach ($this->routes[$request->getMethod()] as $route) {
             if ($route->matches($request)) {
                 return $route;
             }

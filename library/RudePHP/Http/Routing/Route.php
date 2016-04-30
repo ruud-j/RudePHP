@@ -58,4 +58,12 @@ class Route
             return false;
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getMethod()
+    {
+        return $this->method;
+    }
 }
