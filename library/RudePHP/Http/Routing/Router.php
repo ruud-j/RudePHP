@@ -1,5 +1,6 @@
 <?php namespace RudePHP\Http\Routing;
 
+use RudePHP\Http\Request\Method;
 use RudePHP\Http\Request\Request;
 use RudePHP\Http\Response\ErrorResponse;
 
@@ -60,9 +61,51 @@ abstract class Router
      * @param callable $handler
      */
     protected function get($path, callable $handler) {
-        $route = new Route('GET', new RoutePath($path), $handler);
+        $route = new Route(Method::GET, new RoutePath($path), $handler);
         $this->routeStorage->register($route);
     }
 
-    // TODO: Support for other request methods
+    /**
+     * * Register a POST Route in RouteStorage
+     *
+     * @param string $path
+     * @param callable $handler
+     */
+    protected function post($path, callable $handler) {
+        $route = new Route(Method::POST, new RoutePath($path), $handler);
+        $this->routeStorage->register($route);
+    }
+
+    /**
+     * * Register a PUT Route in RouteStorage
+     *
+     * @param string $path
+     * @param callable $handler
+     */
+    protected function put($path, callable $handler) {
+        $route = new Route(Method::PUT, new RoutePath($path), $handler);
+        $this->routeStorage->register($route);
+    }
+
+    /**
+     * * Register a PATCH Route in RouteStorage
+     *
+     * @param string $path
+     * @param callable $handler
+     */
+    protected function patch($path, callable $handler) {
+        $route = new Route(Method::PATCH, new RoutePath($path), $handler);
+        $this->routeStorage->register($route);
+    }
+
+    /**
+     * * Register a DELETE Route in RouteStorage
+     *
+     * @param string $path
+     * @param callable $handler
+     */
+    protected function delete($path, callable $handler) {
+        $route = new Route(Method::DELETE, new RoutePath($path), $handler);
+        $this->routeStorage->register($route);
+    }
 }

@@ -10,5 +10,9 @@ class DefaultRouter extends Router
         $this->get('/', function() {
             return ExampleController::call('show', 'Hello world!');
         });
+
+        $this->post('/foo', function() {
+            return ExampleController::call('create');
+        });
     }
 }

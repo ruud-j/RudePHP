@@ -11,4 +11,11 @@ class ExampleController extends BaseController
             'message' => $message,
         ]);
     }
+
+    public function create()
+    {
+        return new TwigResponse('example/show.html.twig', [
+            'message' => 'POST example',
+        ]);
+    }
 }
